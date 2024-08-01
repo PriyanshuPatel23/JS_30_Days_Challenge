@@ -6,5 +6,5 @@
 - In every file there is added Readme's to see what i learnt and what are the outcomes of it.
 
 ## To setup
-- `git clone https://github.com/Priyanshu-2024/JS_30Days_Challenge.git`
+- `git clone https://github.com/PriyanshuPatel23/JS_30_Days_Challenge.git`
 - Using Code Runner (VS Extension You can execute and see the outputs).
