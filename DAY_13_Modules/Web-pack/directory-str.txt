@@ -1,0 +1,11 @@
+webpack-example/
+├── dist/
+│   └── bundle.js
+├── node_modules/
+├── src/
+│   ├── greet.js
+│   └── index.js
+├── package.json
+├── package-lock.json
+├── webpack.config.js
+└── index.html

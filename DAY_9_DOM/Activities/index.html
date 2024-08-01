@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .highlight {
+        background-color: aqua;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="title">This is Old title</h2>
+    <p id="description">This is Old description</p>
+    <button onclick="changeContent()">Change Content</button>
+
+    <h3 class="Color" style="background-color: blue">Color change on click</h3>
+    <button onclick="changeColor()">Change BG Color</button>
+
+    <ul>
+      Adding Li's here
+    </ul>
+
+    <ul id="remove">
+      <li>Removing this</li>
+    </ul>
+    <button onclick="Remove()">Remove this ul</button>
+
+    <ul id="removeLast">
+      <li>Not Removing this</li>
+      <li>Not Removing this</li>
+      <li>Removing this</li>
+    </ul>
+    <button onclick="removeLastChild()">Remove Last Child</button>
+
+    <img src="../Assets/images/billa.jpeg" alt="" />
+    <button onclick="changeImage()">Change Image</button>
+
+    <h1 id="addStyle">adding css class</h1>
+    <button onclick="addStyle()">Add Style</button>
+    <button onclick="removeStyle()">Remove Style</button>
+
+    <p id="para">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit et sapiente,
+      cum ipsa facilis commodi sint dolorum, earum cumque, iste nobis obcaecati
+      exercitationem quam laudantium! Voluptates enim eum quos placeat.
+    </p>
+    <button id="changeTextPara">Change Text</button>
+
+    <h1 id="borderclr">Trying mouseover</h1>
+
+    <script src="./Activities.js"></script>
+  </body>
+</html>
