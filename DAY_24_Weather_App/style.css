@@ -1,193 +1,192 @@
-/* Reset some default browser styling */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 2vw;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2vw;
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    padding: 30px;
+  width: 90%;
+  max-width: 1200px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 30px;
 }
 
 header {
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 header h1 {
-    font-size: 3em;
-    color: #007BFF;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 3em;
+  color: #007bff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .weather-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    border-bottom: 2px solid #f0f4f8;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid #f0f4f8;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
 }
 
 .current-weather {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .weather-icon {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .weather-icon img {
-    width: 100px;
-    height: 100px;
-    transition: transform 0.3s;
+  width: 100px;
+  height: 100px;
+  transition: transform 0.3s;
 }
 
 .weather-icon img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .weather-details {
-    line-height: 1.8;
-    font-size: 1.2em;
+  line-height: 1.8;
+  font-size: 1.2em;
 }
 
 .weather-details p {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .search {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #cityInput {
-    width: 70%;
-    padding: 12px;
-    font-size: 1.2em;
-    border: 2px solid #ddd;
-    border-radius: 4px;
-    transition: border-color 0.3s;
+  width: 70%;
+  padding: 12px;
+  font-size: 1.2em;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s;
 }
 
 #cityInput:focus {
-    border-color: #007BFF;
-    outline: none;
+  border-color: #007bff;
+  outline: none;
 }
 
 #searchButton {
-    padding: 12px 25px;
-    font-size: 1.2em;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-left: 10px;
-    transition: background-color 0.3s, transform 0.3s;
+  padding: 12px 25px;
+  font-size: 1.2em;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 10px;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 #searchButton:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 .forecast {
-    text-align: center;
-    margin-top: 30px;
+  text-align: center;
+  margin-top: 30px;
 }
 
 .forecast h2 {
-    font-size: 2em;
-    color: #333;
-    margin-bottom: 20px;
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .forecast-cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .forecast-card {
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    width: 150px;
-    margin: 10px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  width: 150px;
+  margin: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .forecast-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .forecast-card img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
 }
 
 .forecast-card p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
+  font-size: 1.1em;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
-    .weather-info {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+  .weather-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-    .forecast-cards {
-        justify-content: center;
-    }
+  .forecast-cards {
+    justify-content: center;
+  }
 
-    .forecast-card {
-        width: 120px;
-    }
+  .forecast-card {
+    width: 120px;
+  }
 }
 
 @media (max-width: 480px) {
-    #cityInput {
-        width: 80%;
-    }
+  #cityInput {
+    width: 80%;
+  }
 
-    header h1 {
-        font-size: 2em;
-    }
+  header h1 {
+    font-size: 2em;
+  }
 
-    .forecast-card {
-        width: 100px;
-    }
+  .forecast-card {
+    width: 100px;
+  }
 }
