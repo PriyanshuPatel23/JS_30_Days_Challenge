@@ -1,0 +1,152 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F9F7F7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #112D4E;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #3F72AF;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #DBE2EF;
+    border-radius: 5px;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #3F72AF;
+}
+
+textarea {
+    resize: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #3F72AF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #112D4E;
+}
+
+/* Task List Styling */
+.task-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.task-item {
+    background-color: #DBE2EF;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.task-item:hover {
+    background-color: #3F72AF;
+}
+
+.task-content {
+    max-width: 75%;
+}
+
+.task-title {
+    font-weight: bold;
+    color: #112D4E;
+}
+
+.task-desc {
+    color: #3F72AF;
+    font-size: 0.9em;
+}
+
+.task-date {
+    font-size: 0.8em;
+    color: #112D4E;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.task-actions button {
+    border: none;
+    background-color: #112D4E;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.task-actions button:hover {
+    background-color: #3F72AF;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .task-content {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .task-actions {
+        justify-content: space-between;
+        width: 100%;
+    }
+}

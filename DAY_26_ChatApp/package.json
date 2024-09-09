@@ -1,0 +1,16 @@
+{
+  "name": "day_28_chatapp",
+  "version": "1.0.0",
+  "description": "This is a chat app built using the sockets",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Priyanshu Patel",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.4",
+    "ws": "^8.18.0"
+  }
+}
