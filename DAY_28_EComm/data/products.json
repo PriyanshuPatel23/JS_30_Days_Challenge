@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Headphones",
+      "price": 50.0,
+      "quantity": 100,
+      "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQTQ3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1687660671363"
+    },
+    {
+      "id": 2,
+      "name": "Smartphone",
+      "price": 300.0,
+      "quantity": 50,
+      "image": "https://images-cdn.ubuy.co.in/633a87dfd6b53a07f76e043c-ip12-pro-max-unlocked-smartphone-for.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Bluetooth Speaker",
+      "price": 45.0,
+      "quantity": 75,
+      "image": "https://trueview.co.in/wp-content/uploads/2023/06/T29989-AE-1.webp"
+    },
+    {
+      "id": 4,
+      "name": "Smart Watch",
+      "price": 120.0,
+      "quantity": 30,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8szRe1IUNBZizhTLqh3TtOx03qdFYB6XASA&s"
+    },
+    {
+      "id": 5,
+      "name": "Laptop",
+      "price": 800.0,
+      "quantity": 20,
+      "image": "https://images.herzindagi.info/image/2023/Jun/apple-laptops-price.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Gaming Console",
+      "price": 400.0,
+      "quantity": 10,
+      "image": "https://5.imimg.com/data5/SELLER/Default/2023/8/338900660/MI/FV/IV/195687344/gaming-console.jpg"
+    },
+    {
+      "id": 7,
+      "name": "4K Monitor",
+      "price": 250.0,
+      "quantity": 40,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXqVczWLOXBln56rIwBX6gyt0VtTu_UezpQQ&s"
+    },
+    {
+      "id": 8,
+      "name": "External Hard Drive",
+      "price": 70.0,
+      "quantity": 60,
+      "image": "https://4.imimg.com/data4/XT/JG/MY-9557037/external-hard-disk.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Tablet",
+      "price": 200.0,
+      "quantity": 25,
+      "image": "https://m.media-amazon.com/images/I/61uA2UVnYWL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Wireless Mouse",
+      "price": 25.0,
+      "quantity": 150,
+      "image": "https://saistationeryprinters.com/wp-content/uploads/2021/02/167.jpg"
+    }
+  ]
+}
