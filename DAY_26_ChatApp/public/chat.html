@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat | Chat App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="chat-container">
-        <div class="chat-window" id="chat-window"></div>
-        <div class="input-container">
-            <input type="text" id="message-input" placeholder="Type a message">
-            <button id="send-btn">Send</button>
+      <aside class="user-list">
+        <h3>Active Users</h3>
+        <ul id="users">
+          <!-- List of users will be dynamically added here -->
+        </ul>
+      </aside>
+      <main class="chat-box">
+        <header class="chat-header">
+          <h2>Chat Room</h2>
+        </header>
+        <div class="messages" id="messages">
+          <!-- Messages will be dynamically added here -->
         </div>
+        <form class="message-input" id="messageForm">
+          <input
+            type="text"
+            id="messageInput"
+            placeholder="Type a message..."
+            required
+          />
+          <button type="submit">Send</button>
+        </form>
+      </main>
     </div>
-
-    <script src="app.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -1,25 +1,95 @@
-const WebSocket = require('ws');
+const express = require("express");
+const bodyParser = require("body-parser");
+const WebSocket = require("ws");
+const cors = require("cors"); // Import CORS middleware
 
-const wss = new WebSocket.Server({ port: 8080 });
+const app = express();
+app.use(bodyParser.json());
+app.use(cors()); // Enable CORS for all routes
 
-wss.on('connection', (ws) => {
-    console.log('New client connected');
+let users = []; // Array to store users
+let activeUsers = []; // To store connected clients
 
-    ws.on('message', (data) => {
-        const messageData = JSON.parse(data);
-        console.log(`${messageData.username}: ${messageData.message}`);
+// Registration endpoint
+app.post("/register", (req, res) => {
+  const { username, password } = req.body;
 
-        // Broadcast the message to all connected clients
-        wss.clients.forEach((client) => {
-            if (client !== ws && client.readyState === WebSocket.OPEN) {
-                client.send(data);
-            }
-        });
-    });
+  if (users.find((user) => user.username === username)) {
+    return res.status(400).json({ message: "User already exists" });
+  }
 
-    ws.on('close', () => {
-        console.log('Client disconnected');
-    });
+  users.push({ username, password });
+  res.status(200).json({ message: "Registration successful" });
 });
 
-console.log('WebSocket server is running on ws://localhost:8080');
+// Login endpoint
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+  const user = users.find(
+    (u) => u.username === username && u.password === password
+  );
+
+  if (user) {
+    res.status(200).json({ message: "Login successful" });
+  } else {
+    res.status(400).json({ message: "Invalid credentials" });
+  }
+});
+
+// Serve static files (HTML, CSS, JS)
+app.use(express.static("public"));
+
+// Start HTTP server
+const server = app.listen(3000, () => {
+  console.log("Server started on http://localhost:3000");
+});
+
+// WebSocket server setup
+wss = new WebSocket.Server({ server });
+
+wss.on("connection", (ws) => {
+  let userName;
+
+  ws.on("message", (message) => {
+    const data = JSON.parse(message);
+
+    // Handle new user joining
+    if (data.type === "join") {
+      userName = data.username;
+      activeUsers.push(userName);
+
+      // Broadcast updated user list
+      broadcast({
+        type: "userList",
+        users: activeUsers,
+      });
+    }
+
+    // Handle user message
+    if (data.type === "message") {
+      broadcast({
+        type: "message",
+        username: userName,
+        message: data.message,
+      });
+    }
+  });
+
+  ws.on("close", () => {
+    // Remove user from active users when they disconnect
+    activeUsers = activeUsers.filter((user) => user !== userName);
+    broadcast({
+      type: "userList",
+      users: activeUsers,
+    });
+  });
+
+  // Broadcast to all connected clients
+  function broadcast(data) {
+    wss.clients.forEach((client) => {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send(JSON.stringify(data));
+      }
+    });
+  }
+});

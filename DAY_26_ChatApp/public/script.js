@@ -1,33 +1,57 @@
-const socket = new WebSocket('ws://localhost:8080');
-const chatWindow = document.getElementById('chat-window');
-const messageInput = document.getElementById('message-input');
-const sendBtn = document.getElementById('send-btn');
-const username = localStorage.getItem('username');
+const username = prompt("Enter your username to join the chat");
 
-sendBtn.addEventListener('click', sendMessage);
-messageInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        sendMessage();
-    }
-});
+const socket = new WebSocket("ws://localhost:3000");
 
-function sendMessage() {
-    const message = messageInput.value;
-    if (message.trim() !== "") {
-        const data = { username, message };
-        socket.send(JSON.stringify(data));
-        messageInput.value = ''; // Clear input after sending
-    }
+// Function to display messages in the chat box
+function displayMessage(message, className) {
+  const messageContainer = document.createElement("div");
+  messageContainer.classList.add("message", className);
+
+  const messageText = document.createElement("p");
+  messageText.textContent = message;
+  messageContainer.appendChild(messageText);
+
+  document.getElementById("messages").appendChild(messageContainer);
 }
 
-socket.onmessage = (event) => {
-    const { username, message } = JSON.parse(event.data);
-    displayMessage(username, message);
+// Function to update the user list
+function updateUserList(users) {
+  const userList = document.getElementById("users");
+  userList.innerHTML = ""; // Clear existing user list
+  users.forEach((user) => {
+    const li = document.createElement("li");
+    li.textContent = user;
+    userList.appendChild(li);
+  });
+}
+
+socket.onopen = function () {
+  console.log("Connected to WebSocket server");
+
+  // Send a message to the server to join the chat
+  socket.send(JSON.stringify({ type: "join", username }));
 };
 
-function displayMessage(username, message) {
-    const messageElement = document.createElement('div');
-    messageElement.innerHTML = `<strong>${username}:</strong> ${message}`;
-    chatWindow.appendChild(messageElement);
-    chatWindow.scrollTop = chatWindow.scrollHeight; // Auto-scroll to bottom
-}
+socket.onmessage = function (event) {
+  const data = JSON.parse(event.data);
+
+  if (data.type === "userList") {
+    updateUserList(data.users);
+  } else if (data.type === "message") {
+    displayMessage(`${data.username}: ${data.message}`, "received");
+  }
+};
+
+document.getElementById("messageForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const message = document.getElementById("messageInput").value;
+
+  // Send the message to the server
+  socket.send(JSON.stringify({ type: "message", message }));
+
+  // Display the message in the sender's chat box
+  displayMessage(`You: ${message}`, "sent");
+
+  // Clear the input field
+  document.getElementById("messageInput").value = "";
+});
