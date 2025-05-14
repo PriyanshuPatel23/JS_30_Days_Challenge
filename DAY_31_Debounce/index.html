@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Debounced Search Example</title>
+  </head>
+  <body>
+    <h2>Debounced Search Box</h2>
+    <input type="text" id="searchInput" placeholder="Type to search..." />
+
+    <script>
+      // Debounce function
+      function debounce(func, delay) {
+        let timer;
+        return function (...args) {
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            func.apply(this, args);
+          }, delay);
+        };
+      }
+
+      // Function to be debounced
+      function performSearch(query) {
+        console.log("Searching for:", query);
+        // You could add an API call here
+        // fetch(`https://api.example.com/search?q=${query}`).then(...)
+      }
+
+      // Attach debounced search to input field
+      const input = document.getElementById("searchInput");
+      const debouncedSearch = debounce(function () {
+        performSearch(input.value);
+      }, 500); // Wait 500ms after user stops typing
+
+      input.addEventListener("input", debouncedSearch);
+    </script>
+  </body>
+</html>

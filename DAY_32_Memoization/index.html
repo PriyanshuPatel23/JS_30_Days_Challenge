@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Memoization Example</title>
+  </head>
+  <body>
+    <h2>Memoized Fibonacci</h2>
+    <input type="number" id="fibInput" placeholder="Enter a number" />
+    <p id="result"></p>
+
+    <script>
+      // Expensive recursive function
+      function slowFibonacci(n) {
+        if (n < 2) return n;
+        return slowFibonacci(n - 1) + slowFibonacci(n - 2);
+      }
+
+      // Memoized version
+      const memoizedFibonacci = memoize(slowFibonacci);
+
+      function memoize(fn) {
+        const cache = new Map();
+        return function (...args) {
+          const key = args[0]; // Only one argument in Fibonacci
+          if (cache.has(key)) {
+            console.log(`Cache hit for ${key}`);
+            return cache.get(key);
+          }
+          console.log(`Calculating for ${key}`);
+          const result = fn(...args);
+          cache.set(key, result);
+          return result;
+        };
+      }
+
+      const input = document.getElementById("fibInput");
+      const resultDisplay = document.getElementById("result");
+
+      input.addEventListener("input", () => {
+        const n = parseInt(input.value, 10);
+        if (!isNaN(n)) {
+          const result = memoizedFibonacci(n);
+          resultDisplay.textContent = `Fibonacci(${n}) = ${result}`;
+        } else {
+          resultDisplay.textContent = "";
+        }
+      });
+    </script>
+  </body>
+</html>
